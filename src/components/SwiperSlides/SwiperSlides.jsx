@@ -43,9 +43,10 @@ const SwiperSlides = ({ data }) => {
               data.map((item) => (
                 <SwiperSlide>
                   <Card
-                    text={item.text}
-                    name={item.name}
+                    text={item.comment}
+                    name={item.username}
                     rating={item.rating}
+                    time={item.created_at}
                   />
                 </SwiperSlide>
               ))}

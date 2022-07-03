@@ -3,6 +3,8 @@ import * as S from "./CommentInput.styles";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 const CommentInput = () => {
+  const [rating, setRating] = useState(null);
+  const [selectedhover, setSelectedHover] = useState(null);
   const [values, setValues] = useState({
     rating: "null",
     text: "",
@@ -25,9 +27,6 @@ const CommentInput = () => {
     }
   };
 
-  const [rating, setRating] = useState(null);
-  const [selectedhover, setSelectedHover] = useState(null);
-
   return (
     <S.CommentContainer>
       <S.Form
@@ -39,7 +38,6 @@ const CommentInput = () => {
         <S.RatingsWrapper>
           {[...Array(Math.round(5))].map((item, index) => {
             const ratingValue = index + 1;
-            console.log(ratingValue);
             return (
               <S.Star
                 key={index}

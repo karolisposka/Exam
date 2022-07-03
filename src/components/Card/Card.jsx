@@ -2,11 +2,11 @@ import React from "react";
 import * as S from "./Card.styles";
 import profile from "../../Assets/profile.png";
 import PropTypes from "prop-types";
-import { faThumbsUp, faStar } from "@fortawesome/free-solid-svg-icons";
-const Card = ({ name, text, handleClick, rating }) => {
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+const Card = ({ name, text, rating, time }) => {
   return (
     <S.Card>
-      <S.Image src={profile} alt="hi" />
+      <S.Image src={profile} alt="avatar" />
       <S.Title>{name}</S.Title>
       <S.ratingWrapper>
         {[...Array(Math.round(rating))].map((item, index) => {
@@ -14,11 +14,9 @@ const Card = ({ name, text, handleClick, rating }) => {
         })}
       </S.ratingWrapper>
       <S.Text>{text}</S.Text>
-      <S.LikesWrapper>
-        <S.LikesButton onClick={() => handleClick(alert("hi"))}>
-          <S.StyledIcon icon={faThumbsUp} />
-        </S.LikesButton>
-      </S.LikesWrapper>
+      <S.InfoWrapper>
+        <div>{new Date(time).toLocaleString("en-GB", { timeZone: "UTC" })}</div>
+      </S.InfoWrapper>
     </S.Card>
   );
 };

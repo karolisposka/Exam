@@ -4,50 +4,39 @@ import SwiperSlides from "../components/SwiperSlides/SwiperSlides";
 import ServicesContainer from "../components/ServicesContainer/ServicesContainer";
 import Hero from "../components/Hero/Heroo";
 
-const data = [
-  {
-    name: "James",
-    text: "cool stuff",
-    rating: 4,
-  },
-  {
-    name: "James",
-    text: "cool stuff",
-    rating: 3.6,
-  },
-  {
-    name: "James",
-    text: "cool stuff",
-    rating: 5,
-  },
-  {
-    name: "James",
-    text: "cool stuff",
-    rating: 1.5,
-  },
-];
-
 const Home = () => {
+  const [reviews, setReviews] = useState();
+  const [error, setError] = useState();
   const [display, setDisplay] = useState(false);
   const myref = useRef(null);
 
-  useEffect(() => {
-    myref.current?.scrollIntoView({ behavior: "smooth" });
-  }, [display]);
-
-  const getData = async (inputs) => {
+  const getData = async () => {
     try {
+      const res = await fetch("http://localhost:8080/v1/reviews/ratings");
+      const data = await res.json();
+      if (data.err) {
+        return setError(data.err);
+      }
+      console.log(data);
+      return setReviews(data);
     } catch (err) {
       console.log(err);
     }
   };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  useEffect(() => {
+    myref.current?.scrollIntoView({ behavior: "smooth" });
+  }, [display]);
 
   return (
     <>
       <Hero
         title="Make More Care"
         subtitle="For Your Health"
-        rotate={display}
         handleClick={() => {
           setDisplay(!display);
         }}
@@ -55,7 +44,7 @@ const Home = () => {
       {display && (
         <>
           <ServicesContainer ref={myref} />
-          <SwiperSlides data={data} />
+          {reviews && <SwiperSlides data={reviews} />}
           <Footer />
         </>
       )}

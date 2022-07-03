@@ -5,7 +5,7 @@ export const Card = Styled.div`
   width:100%;
   border:1px solid rgba(0,0,0,0.3);
   box-shadow:1px 2px 1px 1px rgba(0,0,0,0.3);
-  max-height:30rem;
+  height:20rem;
 `;
 export const Image = Styled.img`
   border-radius:10rem;
@@ -36,13 +36,13 @@ export const Title = Styled.h1`
 `;
 
 export const Text = Styled.p`
-  padding:${(props) => props.theme.sizes.spacing.small};
+  padding:0.5rem ${(props) => props.theme.sizes.spacing.hard};
   border-bottom: 1px solid rgba(0,0,0,0.1);
   
   
 `;
 
-export const LikesWrapper = Styled.div`
+export const InfoWrapper = Styled.div`
   display:flex;
   justify-content: flex-end;
   align-items:center;
@@ -54,7 +54,6 @@ export const LikesWrapper = Styled.div`
 export const Likes = Styled.span`
   margin:${(props) => props.theme.sizes.spacing.small};
   font-size: 1.2rem;
-
 `;
 
 export const StyledIcon = Styled(FontAwesomeIcon)`
