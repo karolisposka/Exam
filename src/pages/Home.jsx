@@ -30,17 +30,17 @@ const data = [
 const Home = () => {
   const [display, setDisplay] = useState(false);
   const myref = useRef(null);
+
   useEffect(() => {
     myref.current?.scrollIntoView({ behavior: "smooth" });
   }, [display]);
 
-  const FancyButton = React.forwardRef((props, ref) => (
-    <>
-      <ServicesContainer ref={ref} />
-      <SwiperSlides data={props.data} />
-      <Footer />
-    </>
-  ));
+  const getData = async (inputs) => {
+    try {
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <>

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Navigation, A11y, Scrollbar, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import Card from "../Card/Card";
-import AddForm from "../AddForm/AddForm";
+import CommentInput from "../CommentInput/CommentInput";
 import * as S from "./SwiperSlides.styles";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -29,12 +30,12 @@ const SwiperSlides = ({ data }) => {
               0: {
                 width: 300,
                 slidesPerView: 1,
-                spaceBetween: 20,
+                spaceBetween: 25,
               },
               768: {
                 width: 768,
                 slidesPerView: 2,
-                spaceBetween: 20,
+                spaceBetween: 50,
               },
             }}
           >
@@ -51,13 +52,18 @@ const SwiperSlides = ({ data }) => {
           </Swiper>
           <S.ButtonWrapper>
             <S.StyledButton
-              text="leave comment"
+              icon={faPlus}
               handleClick={() => {
                 toggle();
               }}
             />
+            <S.Comment>Click to leave a comment</S.Comment>
           </S.ButtonWrapper>
-          {isOpen && <AddForm></AddForm>}
+          {isOpen && (
+            <S.CommentFieldContainer>
+              <CommentInput />
+            </S.CommentFieldContainer>
+          )}
         </S.StyledSection>
       </S.SwiperContainer>
     </S.StyledContainer>
