@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MedicationsList from "../components/MedicationsList/MedicationsList";
+import Container from "../components/Container/Container";
+import Footer from "../components/Footer/Footer";
 import Stats from "../components/Stats/Stats";
 import SearchBar from "../components/SearchBar/SearchBar";
 import { useNavigate } from "react-router-dom";
@@ -82,34 +84,37 @@ const Dashboard = () => {
 
   return (
     <>
-      <SearchBar
-        handleChange={(values) => {
-          return fireSearchQuery(values);
-        }}
-      />
-      {error && <div>{error}</div>}
-      {!records && <div>loading</div>}
-      {records && (
-        <MedicationsList
-          data={records.data}
-          display={show}
-          handleClick={(e) => {
-            deleteMeds(e.currentTarget.id);
+      <Container>
+        <SearchBar
+          handleChange={(values) => {
+            return fireSearchQuery(values);
           }}
-          handleClick1={() => {
-            toggle();
-          }}
-        >
-          {show && (
-            <Stats
-              close={!show}
-              handleClick={() => {
-                toggle();
-              }}
-            />
-          )}
-        </MedicationsList>
-      )}
+        />
+        {error && <div>{error}</div>}
+        {!records && <div>loading</div>}
+        {records && (
+          <MedicationsList
+            data={records.data}
+            display={show}
+            handleClick={(e) => {
+              deleteMeds(e.currentTarget.id);
+            }}
+            handleClick1={() => {
+              toggle();
+            }}
+          >
+            {show && (
+              <Stats
+                close={!show}
+                handleClick={() => {
+                  toggle();
+                }}
+              />
+            )}
+          </MedicationsList>
+        )}
+      </Container>
+      <Footer />
     </>
   );
 };

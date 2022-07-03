@@ -6,21 +6,16 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 const SearchBar = ({ children, handleChange, className }) => {
   const [query, setQuery] = useState();
   return (
-    <S.SearchContainer className={className}>
-      <S.StyledSection>
-        <S.SearchForm>
-          <S.Input
-            placeholder="...Search"
-            onChange={(e) => {
-              e.preventDefault();
-              handleChange(setQuery(e.target.value));
-            }}
-          />
-          <S.SearchButton icon={faSearch} type="submit" />
-        </S.SearchForm>
-        {children}
-      </S.StyledSection>
-    </S.SearchContainer>
+    <S.SearchForm>
+      <S.Input
+        placeholder="...Search"
+        onChange={(e) => {
+          e.preventDefault();
+          handleChange(setQuery(e.target.value));
+        }}
+      />
+      <S.SearchButton icon={faSearch} type="submit" />
+    </S.SearchForm>
   );
 };
 

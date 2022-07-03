@@ -7,6 +7,7 @@ export const SwiperContainer = Styled.div`
    padding:${(props) => props.theme.sizes.spacing.medium};
    font-family:${(props) => props.theme.fonts.name.primary};
    
+   
 `;
 
 const transition = keyframes`
@@ -19,6 +20,8 @@ const transition = keyframes`
 `;
 
 export const StyledContainer = Styled(Container)`
+   background:none;
+   height:100%;
 
 `;
 

@@ -20,6 +20,7 @@ const LoginForm = ({ handleSubmit, error }) => {
                 handleSubmit(data);
               }}
             >
+              {error && <Notification>{error}</Notification>}
               <S.Title>Login</S.Title>
               <FormInput
                 type="email"
@@ -43,7 +44,6 @@ const LoginForm = ({ handleSubmit, error }) => {
                 <S.StyledButton type="submit" text="submit" />
                 <S.StyledLink to="/register">Click to register</S.StyledLink>
               </S.ButtonWrapper>
-              {error && <Notification>{error}</Notification>}
             </S.Form>
           </S.FormContainer>
         </S.StyledSection>

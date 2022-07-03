@@ -1,19 +1,12 @@
 import Styled from "styled-components";
-import Container from "../Container/Container";
 import Section from "../Section/Section";
 import Button from "../Button/Button";
-
-export const SearchContainer = Styled(Container)`
-
-
-    
-
-`;
 
 export const SearchForm = Styled.form`
     display:flex;
     border:1px solid black;
     width:100%;
+    margin-top:5rem;
     border-top-right-radius: 0.2rem;
     border-bottom-right-radius: 0.2rem;
     box-shadow: 1px 1px 1px 1px  rgba(0,0,0,0.3);

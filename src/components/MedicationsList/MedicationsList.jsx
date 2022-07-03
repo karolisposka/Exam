@@ -12,34 +12,31 @@ const MedicationsList = ({
 }) => {
   const navigate = useNavigate();
   return (
-    <S.MedicationsListContainer>
-      <S.StyledSection>
-        <S.MedicationsList>
-          {data &&
-            data.map((item) => (
-              <S.MedsCard
-                id={item.id}
-                key={item.id}
-                title={item.title}
-                description={item.description}
-                handleClick={handleClick}
-                time={item.time}
-                handleClick1={handleClick1}
-              />
-            ))}
-        </S.MedicationsList>
-        <S.AddButtonWrapper>
-          <S.AddButton
-            text="add"
-            icon={faPlus}
-            handleClick={() => {
-              navigate("/add");
-            }}
-          />
-        </S.AddButtonWrapper>
-      </S.StyledSection>
-      {children}
-    </S.MedicationsListContainer>
+    <>
+      <S.MedicationsList>
+        {data &&
+          data.map((item) => (
+            <S.MedsCard
+              id={item.id}
+              key={item.id}
+              title={item.title}
+              description={item.description}
+              handleClick={handleClick}
+              time={item.time}
+              handleClick1={handleClick1}
+            />
+          ))}
+      </S.MedicationsList>
+      <S.AddButtonWrapper>
+        <S.AddButton
+          text="add"
+          icon={faPlus}
+          handleClick={() => {
+            navigate("/add");
+          }}
+        />
+      </S.AddButtonWrapper>
+    </>
   );
 };
 
