@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Footer from "../components/Footer/Footer";
 import SwiperSlides from "../components/SwiperSlides/SwiperSlides";
 import ServicesContainer from "../components/ServicesContainer/ServicesContainer";
-import Heroo from "../components/Heroo/Heroo";
+import Hero from "../components/Hero/Heroo";
 
 const data = [
   {
@@ -34,9 +34,17 @@ const Home = () => {
     myref.current?.scrollIntoView({ behavior: "smooth" });
   }, [display]);
 
+  const FancyButton = React.forwardRef((props, ref) => (
+    <>
+      <ServicesContainer ref={ref} />
+      <SwiperSlides data={props.data} />
+      <Footer />
+    </>
+  ));
+
   return (
     <>
-      <Heroo
+      <Hero
         title="Make More Care"
         subtitle="For Your Health"
         rotate={display}
@@ -46,7 +54,7 @@ const Home = () => {
       />
       {display && (
         <>
-          <ServicesContainer />
+          <ServicesContainer ref={myref} />
           <SwiperSlides data={data} />
           <Footer />
         </>

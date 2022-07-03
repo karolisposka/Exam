@@ -30,57 +30,55 @@ const RegisterForm = ({ handleSubmit }) => {
     return setData({ ...data, page: data.page - 1 });
   };
 
-  return (() => {
+  const display = () => {
     <S.ProgressBar style={{ width: "50%" }} />;
     switch (data.page) {
       case 0:
         return (
-          <S.Container>
-            <S.Form>
-              <S.ProgressBar style={{ width: `calc(50% * ${data.page + 1}` }} />
-              <S.ProgressLeft
-                style={{ width: `calc(100% - (50% * ${data.page + 1}))` }}
-              />
-              <S.Title>Register</S.Title>
-              <FormInput
-                type="text"
-                label="Name"
-                placeholder="Username"
-                icon={faUser}
-                handleChange={(usernameValue) => {
-                  setData({ ...data, username: usernameValue });
+          <S.Form>
+            <S.ProgressBar style={{ width: `calc(50% * ${data.page + 1}` }} />
+            <S.ProgressLeft
+              style={{ width: `calc(100% - (50% * ${data.page + 1}))` }}
+            />
+            <S.Title>Register</S.Title>
+            <FormInput
+              type="text"
+              label="Name"
+              placeholder="Username"
+              icon={faUser}
+              handleChange={(usernameValue) => {
+                setData({ ...data, username: usernameValue });
+              }}
+            />
+            <FormInput
+              type="email"
+              label="Email address"
+              placeholder="example@example.com"
+              icon={faMailBulk}
+              handleChange={(emailValue) =>
+                setData({ ...data, email: emailValue })
+              }
+            />
+            <FormInput
+              type="password"
+              label="Password"
+              placeholder="Password"
+              icon={faLock}
+              handleChange={(passwordValue) =>
+                setData({ ...data, password: passwordValue })
+              }
+            />
+            <S.ButtonsWrapper>
+              <S.StyledButton
+                type="button"
+                icon={faArrowCircleRight}
+                text="Next"
+                handleClick={() => {
+                  forward();
                 }}
               />
-              <FormInput
-                type="email"
-                label="Email address"
-                placeholder="example@example.com"
-                icon={faMailBulk}
-                handleChange={(emailValue) =>
-                  setData({ ...data, email: emailValue })
-                }
-              />
-              <FormInput
-                type="password"
-                label="Password"
-                placeholder="Password"
-                icon={faLock}
-                handleChange={(passwordValue) =>
-                  setData({ ...data, password: passwordValue })
-                }
-              />
-              <S.ButtonsWrapper>
-                <S.StyledButton
-                  type="button"
-                  icon={faArrowCircleRight}
-                  text="Next"
-                  handleClick={() => {
-                    forward();
-                  }}
-                />
-              </S.ButtonsWrapper>
-            </S.Form>
-          </S.Container>
+            </S.ButtonsWrapper>
+          </S.Form>
         );
       case 1:
         return (
@@ -129,7 +127,15 @@ const RegisterForm = ({ handleSubmit }) => {
       default:
         return <div>loading...</div>;
     }
-  })();
+  };
+
+  return (
+    <S.Container>
+      <S.StyledSection>
+        <S.FormContainer>{display()}</S.FormContainer>
+      </S.StyledSection>
+    </S.Container>
+  );
 };
 
 RegisterForm.propTypes = {
