@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import * as S from "./RegisterForm.styles";
+import Container from "../Container/Container";
 import FormInput from "../FormInput/FormInput";
 import CheckBoxInput from "../CheckBoxInput/CheckBoxInput";
 import PropTypes from "prop-types";
@@ -21,7 +22,7 @@ const RegisterForm = ({ handleSubmit }) => {
     first: "",
     last: "",
   });
-  console.log(data.page);
+
   const forward = () => {
     return setData({ ...data, page: data.page + 1 });
   };
@@ -130,11 +131,9 @@ const RegisterForm = ({ handleSubmit }) => {
   };
 
   return (
-    <S.Container>
-      <S.StyledSection>
-        <S.FormContainer>{display()}</S.FormContainer>
-      </S.StyledSection>
-    </S.Container>
+    <Container>
+      <S.FormContainer>{display()}</S.FormContainer>
+    </Container>
   );
 };
 

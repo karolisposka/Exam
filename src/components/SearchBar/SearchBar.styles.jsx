@@ -4,16 +4,17 @@ import Button from "../Button/Button";
 
 export const SearchForm = Styled.form`
     display:flex;
-    border:1px solid black;
     width:100%;
     margin-top:5rem;
     border-top-right-radius: 0.2rem;
     border-bottom-right-radius: 0.2rem;
+    border: 1px solid ${(props) => props.theme.colors.border.light};
     box-shadow: 1px 1px 1px 1px  rgba(0,0,0,0.3);
+    
 `;
 
 export const Input = Styled.input`
-    border: 0.01rem solid rgba(0,0,0,0.2);
+    color:${(props) => props.theme.colors.text.light};
     width:95%;
     margin: 0 auto;
     box-sizing:border-box;

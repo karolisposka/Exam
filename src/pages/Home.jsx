@@ -17,7 +17,6 @@ const Home = () => {
       if (data.err) {
         return setError(data.err);
       }
-      console.log(data);
       return setReviews(data);
     } catch (err) {
       console.log(err);
@@ -43,7 +42,7 @@ const Home = () => {
       />
       {display && (
         <>
-          <ServicesContainer ref={myref} />
+          <ServicesContainer />
           {reviews && <SwiperSlides data={reviews} />}
           <Footer />
         </>

@@ -2,20 +2,6 @@ import Styled from "styled-components";
 import Section from "../Section/Section";
 import Button from "../Button/Button";
 
-export const Container = Styled.div`
-    width:100%;
-    height:calc(100vh - 11.6rem);
-    background: rgb(22,8,105);
-    background: linear-gradient(135deg, rgba(22,8,105,1) 62.5%, rgba(164,17,255,1) 36%);
-    @media(max-width:768px){
-        height: calc(100vh - 9.1rem)
-        }
-`;
-export const StyledSection = Styled(Section)`
-
-
-`;
-
 export const FormContainer = Styled.div`
     display:flex;
     justify-content:center;
@@ -28,17 +14,21 @@ export const FormContainer = Styled.div`
 `;
 
 export const Form = Styled.form`
-    width:500px;
+    width:50%;
     margin:${(props) => props.theme.sizes.spacing.medium};
     padding:${(props) => props.theme.sizes.spacing.medium};
-    background:${(props) => props.theme.colors.background.secondary};
+    background:${(props) => props.theme.colors.background.light};
     border-radius:${(props) => props.theme.sizes.radius.small};
-    height:25rem;
+    min-height:25rem;
+    @media(max-width:768px){
+        width:100%;
+    }
+    
 `;
 
 export const Title = Styled.h1`
     margin:${(props) => props.theme.sizes.spacing.medium};
-    color: ${(props) => props.theme.colors.text.light};
+    color: ${(props) => props.theme.colors.text.primary};
     
 `;
 
@@ -57,8 +47,15 @@ export const ProgressLeft = Styled.div`
 export const ButtonsWrapper = Styled.div`
     display:flex;
     justify-content: flex-end;
+    margin:${(props) => props.theme.sizes.spacing.hard};
+    margin-bottom: auto;
 `;
 
 export const StyledButton = Styled(Button)`
-    margin:0 ${(props) => props.theme.sizes.spacing.small};
+    background:${(props) => props.theme.colors.background.primary};
+    padding:${(props) => props.theme.sizes.spacing.small};
+    color:${(props) => props.theme.colors.text.light};
+    &:last-child{
+        margin-left:0.5rem;
+    }
 `;

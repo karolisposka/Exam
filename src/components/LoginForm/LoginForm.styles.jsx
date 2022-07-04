@@ -21,7 +21,6 @@ export const StyledSection = Styled(Section)`
 export const FormContainer = Styled.div`
     display:flex;
     justify-content:center;
-    align-items:center;
     padding-top:10rem;
     @media(max-width:768px){
         padding-top:5rem;

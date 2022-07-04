@@ -4,7 +4,6 @@ import Container from "../Container/Container";
 import Section from "../Section/Section";
 
 export const SwiperContainer = Styled.div`
-   padding:${(props) => props.theme.sizes.spacing.medium};
    font-family:${(props) => props.theme.fonts.name.primary};
    
    

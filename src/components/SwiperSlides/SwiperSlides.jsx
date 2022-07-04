@@ -13,7 +13,6 @@ import "swiper/css/autoplay";
 
 const SwiperSlides = ({ data }) => {
   const [isOpen, setIsOpen] = useState(false);
-  console.log(isOpen);
   const toggle = () => {
     setIsOpen(!isOpen);
   };
@@ -25,24 +24,22 @@ const SwiperSlides = ({ data }) => {
             modules={[Navigation, A11y, Scrollbar, Autoplay]}
             scrollbar={{ draggable: true }}
             autoplay={true}
-            reverseDirection={true}
             breakpoints={{
               0: {
-                width: 300,
                 slidesPerView: 1,
-                spaceBetween: 25,
+                spaceBetween: 10,
               },
               768: {
-                width: 768,
-                slidesPerView: 2,
-                spaceBetween: 50,
+                slidesPerView: 3,
+                spaceBetween: 15,
               },
             }}
           >
             {data &&
-              data.map((item) => (
-                <SwiperSlide>
+              data.map((item, index) => (
+                <SwiperSlide key={index}>
                   <Card
+                    key={index}
                     text={item.comment}
                     name={item.username}
                     rating={item.rating}

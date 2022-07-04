@@ -6,13 +6,23 @@ import Select from "react-select";
 export const FormContainer = Styled.div`
     display:Flex;
     padding:${(props) => props.theme.sizes.spacing.medium};
-    justify-content:space-between;
+    justify-content:center;
+    align-items:center;
+    padding-top:10rem;
 `;
 
 export const Form = Styled.form`
     box-sizing:border-box;
     border:1px solid black;
     padding:1rem;
+    width:50%;
+    background:white;
+    border-radius:1rem;
+    border:none;
+    @media(max-width:768px){
+        width:100%;
+    }
+    
 `;
 
 export const StyledSelect = Styled(Select)`

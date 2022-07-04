@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
 import MedicationsList from "../components/MedicationsList/MedicationsList";
 import Container from "../components/Container/Container";
-import Footer from "../components/Footer/Footer";
-import Stats from "../components/Stats/Stats";
 import SearchBar from "../components/SearchBar/SearchBar";
+import NoData from "../components/Nodata/Nodata";
+import Footer from "../components/Footer/Footer";
 import { useNavigate } from "react-router-dom";
 
 const CheckToken = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
-  console.log(token);
   if (!token) {
     return navigate("/");
   }
@@ -19,7 +18,6 @@ const Dashboard = () => {
   CheckToken();
   const [records, setRecords] = useState();
   const [error, setError] = useState();
-  const [show, setShow] = useState(false);
 
   const getUserRecords = async () => {
     try {
@@ -40,7 +38,7 @@ const Dashboard = () => {
     }
   };
 
-  const fireSearchQuery = async (inputs) => {
+  const fireSearchQuery = async (input) => {
     try {
       const res = await fetch("http://localhost:8080/v1/meds/search", {
         method: "POST",
@@ -48,10 +46,13 @@ const Dashboard = () => {
           "Content-type": "application/json",
           Authorization: "Bearer " + localStorage.getItem("token"),
         },
-        body: JSON.stringify(inputs),
+        body: JSON.stringify(input),
       });
-      const data = await res.json();
-      console.log(data);
+      const data = await res.json(input);
+      if (data.err) {
+        console.log(data.err);
+      }
+      return setRecords(data);
     } catch (err) {
       console.log(err);
     }
@@ -74,10 +75,6 @@ const Dashboard = () => {
     }
   };
 
-  const toggle = () => {
-    return setShow(!show);
-  };
-
   useEffect(() => {
     getUserRecords();
   }, []);
@@ -86,32 +83,18 @@ const Dashboard = () => {
     <>
       <Container>
         <SearchBar
-          handleChange={(values) => {
-            return fireSearchQuery(values);
+          handleChange={(input) => {
+            !input ? getUserRecords() : fireSearchQuery({ input: input });
           }}
         />
-        {error && <div>{error}</div>}
-        {!records && <div>loading</div>}
+        {error && <NoData text={error} />}
         {records && (
           <MedicationsList
-            data={records.data}
-            display={show}
+            data={records}
             handleClick={(e) => {
               deleteMeds(e.currentTarget.id);
             }}
-            handleClick1={() => {
-              toggle();
-            }}
-          >
-            {show && (
-              <Stats
-                close={!show}
-                handleClick={() => {
-                  toggle();
-                }}
-              />
-            )}
-          </MedicationsList>
+          />
         )}
       </Container>
       <Footer />

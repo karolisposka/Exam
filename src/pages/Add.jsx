@@ -3,6 +3,7 @@ import AddForm from "../components/AddForm/AddForm";
 import Section from "../components/Section/Section";
 import Container from "../components/Container/Container";
 import Notification from "../components/Notification/Notification";
+import Footer from "../components/Footer/Footer";
 
 const Add = () => {
   const [notification, setNotification] = useState();
@@ -29,8 +30,8 @@ const Add = () => {
     }
   };
   return (
-    <Container>
-      <Section>
+    <>
+      <Container>
         <AddForm
           handleSubmit={(inputs) => {
             addRecord(inputs);
@@ -48,8 +49,9 @@ const Add = () => {
             </Notification>
           )}
         </AddForm>
-      </Section>
-    </Container>
+      </Container>
+      <Footer />
+    </>
   );
 };
 

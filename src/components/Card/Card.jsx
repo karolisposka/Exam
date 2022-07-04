@@ -24,8 +24,9 @@ const Card = ({ name, text, rating, time }) => {
 Card.propTypes = {
   name: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
+  time: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired,
   handleClick: PropTypes.func,
-  number: PropTypes.number.isRequired,
 };
 
 export default Card;

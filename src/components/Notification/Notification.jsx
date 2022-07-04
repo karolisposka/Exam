@@ -16,6 +16,7 @@ const Notification = ({ children, handleClick }) => {
 
 Notification.propTypes = {
   children: PropTypes.string.isRequired,
+  handleClick: PropTypes.func,
 };
 
 export default Notification;

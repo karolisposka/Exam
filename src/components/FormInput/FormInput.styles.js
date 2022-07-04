@@ -9,6 +9,9 @@ export const InputBox = Styled.div`
     box-sizing:border-box;
     margin: ${(props) => props.theme.sizes.spacing.hard};
     font-family: ${(props) => props.theme.fonts.name.primary};
+    @media(max-width:768px){
+        padding:0.25rem 1rem;
+    }
 `;
 
 export const Icon = Styled(FontAwesomeIcon)`
@@ -24,6 +27,9 @@ export const Label = Styled.label`
     color: ${(props) => props.theme.colors.text.primary};
     font-size:1.25rem;
     font-weight:${(props) => props.theme.fonts.sizes.medium};
+    @media(max-width:768px){
+        font-size:0.9rem;
+    }
 `;
 
 export const Input = Styled.input`

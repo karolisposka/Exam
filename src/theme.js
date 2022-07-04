@@ -3,6 +3,7 @@ const theme = {
     background: {
       primary: "#a411ff",
       secondary: "#02598a",
+      light: "#fff",
     },
     text: {
       primary: "#0b3254",
@@ -13,6 +14,7 @@ const theme = {
     border: {
       primary: "rgba(0, 0, 0, 0.3)",
       secondary: "red",
+      light: "#fff",
     },
   },
 

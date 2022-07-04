@@ -1,17 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import * as S from "./SearchBar.styles";
 import PropTypes from "prop-types";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
-const SearchBar = ({ children, handleChange, className }) => {
-  const [query, setQuery] = useState();
+const SearchBar = ({ handleChange, className }) => {
   return (
-    <S.SearchForm>
+    <S.SearchForm className={className}>
       <S.Input
         placeholder="...Search"
         onChange={(e) => {
-          e.preventDefault();
-          handleChange(setQuery(e.target.value));
+          handleChange(e.target.value);
         }}
       />
       <S.SearchButton icon={faSearch} type="submit" />
@@ -21,7 +19,7 @@ const SearchBar = ({ children, handleChange, className }) => {
 
 SearchBar.propTypes = {
   children: PropTypes.node,
-  handleChange: PropTypes.func,
+  handleChange: PropTypes.func.isRequired,
 };
 
 export default SearchBar;

@@ -5,7 +5,8 @@ export const Card = Styled.div`
   width:100%;
   border:1px solid rgba(0,0,0,0.3);
   box-shadow:1px 2px 1px 1px rgba(0,0,0,0.3);
-  height:20rem;
+  height:23rem;
+  box-sizing:border-box;
 `;
 export const Image = Styled.img`
   border-radius:10rem;
@@ -36,10 +37,11 @@ export const Title = Styled.h1`
 `;
 
 export const Text = Styled.p`
-  padding:0.5rem ${(props) => props.theme.sizes.spacing.hard};
+  padding:1rem ${(props) => props.theme.sizes.spacing.hard};
   border-bottom: 1px solid rgba(0,0,0,0.1);
-  
-  
+  word-wrap: break-word;
+  max-height:3rem;
+  overflow:hidden;
 `;
 
 export const InfoWrapper = Styled.div`

@@ -3,12 +3,22 @@ import Button from "../Button/Button";
 import MedicationCard from "../MedicationCard/MedicationCard";
 import Section from "../Section/Section";
 import SearchBar from "../SearchBar/SearchBar";
+import Container from "../Container/Container";
 
 export const MedicationsListContainer = Styled.div`
     background:#fffe;
     width:100%;
     position:relative;
     
+`;
+
+export const StyledContainer = Styled(Container)`
+
+`;
+
+export const StyledSearch = Styled(SearchBar)`
+
+
 `;
 
 export const StyledSection = Styled(Section)`
@@ -18,6 +28,7 @@ export const StyledSection = Styled(Section)`
 export const MedicationsList = Styled.div`
     display:flex;
     flex-wrap:wrap;
+    margin-top:0.5rem;
     
 `;
 
