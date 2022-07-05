@@ -61,6 +61,7 @@ const Register = () => {
             password: data.password,
           })
         }
+        error={error}
       />
       <Footer />
     </>

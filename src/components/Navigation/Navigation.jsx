@@ -3,7 +3,6 @@ import * as S from "./Navigation.styles";
 import Section from "../Section/Section";
 import PropTypes from "prop-types";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-import Button from "../Button/Button";
 import Logo from "../../Assets/logo.svg";
 
 const Navigation = ({ links }) => {

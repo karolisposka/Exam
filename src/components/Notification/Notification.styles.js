@@ -6,7 +6,7 @@ export const Notification = styled.div`
   color: white;
   border-radius: 0.5rem;
   padding: 1rem;
-  margin: 0 1rem;
+  width: 100%;
   display: flex;
   justify-content: space-between;
 `;

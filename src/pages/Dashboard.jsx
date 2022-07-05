@@ -48,9 +48,9 @@ const Dashboard = () => {
         },
         body: JSON.stringify(input),
       });
-      const data = await res.json(input);
+      const data = await res.json();
       if (data.err) {
-        console.log(data.err);
+        setError(data.err);
       }
       return setRecords(data);
     } catch (err) {

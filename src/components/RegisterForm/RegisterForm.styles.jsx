@@ -1,5 +1,4 @@
 import Styled from "styled-components";
-import Section from "../Section/Section";
 import Button from "../Button/Button";
 
 export const FormContainer = Styled.div`
@@ -13,13 +12,23 @@ export const FormContainer = Styled.div`
     
 `;
 
-export const Form = Styled.form`
+export const Container = Styled.div`
     width:50%;
+    display:Flex;
+    flex-direction:column;
+    align-items:center;
+    
+`;
+
+export const Form = Styled.form`
+    width:100%;
     margin:${(props) => props.theme.sizes.spacing.medium};
     padding:${(props) => props.theme.sizes.spacing.medium};
     background:${(props) => props.theme.colors.background.light};
     border-radius:${(props) => props.theme.sizes.radius.small};
     min-height:25rem;
+    position:relative;
+    
     @media(max-width:768px){
         width:100%;
     }
@@ -29,7 +38,9 @@ export const Form = Styled.form`
 export const Title = Styled.h1`
     margin:${(props) => props.theme.sizes.spacing.medium};
     color: ${(props) => props.theme.colors.text.primary};
-    
+    &:first-child{
+        visibility:hidden;
+    }
 `;
 
 export const ProgressBar = Styled.div`
@@ -48,7 +59,7 @@ export const ButtonsWrapper = Styled.div`
     display:flex;
     justify-content: flex-end;
     margin:${(props) => props.theme.sizes.spacing.hard};
-    margin-bottom: auto;
+
 `;
 
 export const StyledButton = Styled(Button)`

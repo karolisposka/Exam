@@ -9,6 +9,7 @@ const Home = () => {
   const [error, setError] = useState();
   const [display, setDisplay] = useState(false);
   const myref = useRef(null);
+  console.log(reviews);
 
   const getData = async () => {
     try {
@@ -19,7 +20,7 @@ const Home = () => {
       }
       return setReviews(data);
     } catch (err) {
-      console.log(err);
+      setError("server issue");
     }
   };
 
