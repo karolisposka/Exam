@@ -81,6 +81,7 @@ export const LogoutButton = Styled(Button)`
     background:transparent;
     border:none;
     color:${(props) => props.theme.colors.text.light};
+    font-size:1.5rem;
 `;
 
 export const StyledLink = Styled(Link)`

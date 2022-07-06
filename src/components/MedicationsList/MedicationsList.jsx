@@ -17,7 +17,6 @@ const MedicationsList = ({ data, handleClick, handleClick1 }) => {
               description={item.description}
               handleClick={handleClick}
               time={item.time}
-              handleClick1={handleClick1}
             />
           ))}
       </S.MedicationsList>

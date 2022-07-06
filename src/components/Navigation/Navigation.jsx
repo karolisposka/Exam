@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import * as S from "./Navigation.styles";
 import Section from "../Section/Section";
 import PropTypes from "prop-types";
-import { faBars, faArrowTurnRight } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faSignOut } from "@fortawesome/free-solid-svg-icons";
 import Logo from "../../Assets/logo.svg";
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -57,7 +57,7 @@ const Navigation = ({ links }) => {
               ))}
             {token && location.pathname !== "/" && (
               <S.LogoutButton
-                icon={faArrowTurnRight}
+                icon={faSignOut}
                 handleClick={() => {
                   localStorage.removeItem("token");
                   navigate("/");

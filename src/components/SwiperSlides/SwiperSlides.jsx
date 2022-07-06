@@ -55,7 +55,9 @@ const SwiperSlides = ({ data }) => {
                 toggle();
               }}
             />
-            <S.Comment>Click to leave a comment</S.Comment>
+            <S.Comment>
+              Click to leave a comment (register users only)
+            </S.Comment>
           </S.ButtonWrapper>
           {isOpen && (
             <S.CommentFieldContainer>

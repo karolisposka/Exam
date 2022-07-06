@@ -26,7 +26,10 @@ const MedicationCard = ({
           ></S.CloseButton>
         </S.TitleSection>
         <S.Description>{description}</S.Description>
-        {time && time.split(",").map((item) => <S.Tag>{item + ":00"}</S.Tag>)}
+        {time &&
+          time
+            .split(",")
+            .map((item, index) => <S.Tag key={index}>{item + ":00"}</S.Tag>)}
         <S.ButtonsWrapper>
           <S.StyledButton text="view" handleClick={handleClick1} />
         </S.ButtonsWrapper>
