@@ -35,6 +35,7 @@ export const Form = Styled.form`
 `;
 export const Title = Styled.h1`
     margin:1.5rem;
+    font-size:1.2rem;
     color:${(props) => props.theme.colors.text.primary};
 
 `;
