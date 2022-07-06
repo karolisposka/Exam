@@ -3,42 +3,55 @@ import FormInput from "../FormInput/FormInput";
 import Button from "../Button/Button";
 import Select from "react-select";
 
-export const FormContainer = Styled.div`
-    display:Flex;
-    padding:${(props) => props.theme.sizes.spacing.medium};
-    justify-content:center;
+export const Container = Styled.div`
     align-items:center;
+    display:flex;
+    justify-content:center;
     padding-top:10rem;
+    width:100%;
+        @media(max-width:768px){
+        width:100%;
+    }
+
+
+`;
+
+export const FormContainer = Styled.div`
+    
+   
 `;
 
 export const Form = Styled.form`
-    box-sizing:border-box;
-    border:1px solid black;
-    padding:1rem;
-    width:50%;
-    background:white;
+    background:${(props) => props.theme.colors.background.light};
     border-radius:1rem;
+    border:1px solid black;
     border:none;
-    @media(max-width:768px){
-        width:100%;
-    }
+    box-sizing:border-box;
+    box-sizing:border-box;
+    padding:1rem;
+    width:100%;
     
 `;
 
 export const StyledSelect = Styled(Select)`
-    margin: ${(props) => props.theme.sizes.spacing.medium};
-    padding:${(props) => props.theme.sizes.spacing.hard};
-    box-sizing: border-box;
-    width:50%;
+    
+    margin:0 1.5rem;
+    &:first-child{
+      display:inline;
+    }
 `;
 
 export const StyledFormInput = Styled(FormInput)`
-    width:50%;
+    
+
+    
 `;
 
 export const SelectsWrapper = Styled.div`
-    display:flex;
     align-items:center;
+    display:flex;
+    justify-content:space-between;
+   
 `;
 
 export const buttonWrapper = Styled.div`
@@ -49,8 +62,10 @@ export const buttonWrapper = Styled.div`
 
 export const StyledButton = Styled(Button)`
     background:${(props) => props.theme.colors.background.secondary};
+    border-radius:0.25rem;
+    border:none;
+    color:${(props) => props.theme.colors.text.light};
     padding:${(props) => props.theme.sizes.spacing.small};
-    color:${[(props) => props.theme.colors.text.light]}
 
 
 

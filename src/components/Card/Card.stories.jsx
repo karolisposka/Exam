@@ -11,7 +11,7 @@ export default {
 export const Primary = () => {
   return (
     <ThemeProvider theme={theme}>
-      <Card></Card>
+      <Card />
     </ThemeProvider>
   );
 };

@@ -77,6 +77,12 @@ export const MobileNavBar = Styled.nav`
     }
 `;
 
+export const LogoutButton = Styled(Button)`
+    background:transparent;
+    border:none;
+    color:${(props) => props.theme.colors.text.light};
+`;
+
 export const StyledLink = Styled(Link)`
     text-decoration:none;
     margin:${(props) => props.theme.sizes.spacing.medium};
@@ -88,6 +94,7 @@ export const StyledLink = Styled(Link)`
         color:white;
     }
     @media (max-width:768px){
-        
+        color:${(props) => props.theme.colors.text.light};
+        font-size:1.5rem;
     }
 `;

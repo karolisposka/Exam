@@ -4,16 +4,17 @@ import SwiperSlides from "../components/SwiperSlides/SwiperSlides";
 import ServicesContainer from "../components/ServicesContainer/ServicesContainer";
 import Hero from "../components/Hero/Heroo";
 
+const url = process.env.REACT_APP_BACK_API;
+
 const Home = () => {
   const [reviews, setReviews] = useState();
   const [error, setError] = useState();
   const [display, setDisplay] = useState(false);
   const myref = useRef(null);
-  console.log(reviews);
 
   const getData = async () => {
     try {
-      const res = await fetch("http://localhost:8080/v1/reviews/ratings");
+      const res = await fetch(url + "/reviews/ratings");
       const data = await res.json();
       if (data.err) {
         return setError(data.err);

@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import AddForm from "../components/AddForm/AddForm";
-import Section from "../components/Section/Section";
 import Container from "../components/Container/Container";
 import Notification from "../components/Notification/Notification";
 import Footer from "../components/Footer/Footer";
+
+const url = process.env.REACT_APP_BACK_API;
 
 const Add = () => {
   const [notification, setNotification] = useState();
   const [error, setError] = useState();
   const addRecord = async (inputs) => {
     try {
-      const res = await fetch("http://localhost:8080/v1/meds/add", {
+      const res = await fetch(url + "/meds/add", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -36,19 +37,8 @@ const Add = () => {
           handleSubmit={(inputs) => {
             addRecord(inputs);
           }}
-        >
-          {notification && (
-            <Notification handleClick={() => setNotification("")}>
-              {notification}
-            </Notification>
-          )}
-
-          {error && (
-            <Notification status="true" handleClick={() => setError("")}>
-              {error}
-            </Notification>
-          )}
-        </AddForm>
+          error={error || notification}
+        ></AddForm>
       </Container>
       <Footer />
     </>

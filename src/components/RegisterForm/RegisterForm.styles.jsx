@@ -1,6 +1,18 @@
 import Styled from "styled-components";
 import Button from "../Button/Button";
 
+export const Container = Styled.div`
+    width:50%;
+    display:Flex;
+    flex-direction:column;
+    align-items:center;
+    box-sizing:border-box;
+    @media(max-width:768px){
+        width:100%;
+        margin:1rem;
+    }
+`;
+
 export const FormContainer = Styled.div`
     display:flex;
     justify-content:center;
@@ -12,27 +24,15 @@ export const FormContainer = Styled.div`
     
 `;
 
-export const Container = Styled.div`
-    width:50%;
-    display:Flex;
-    flex-direction:column;
-    align-items:center;
-    
-`;
-
 export const Form = Styled.form`
     width:100%;
     margin:${(props) => props.theme.sizes.spacing.medium};
     padding:${(props) => props.theme.sizes.spacing.medium};
     background:${(props) => props.theme.colors.background.light};
     border-radius:${(props) => props.theme.sizes.radius.small};
+    box-sizing:border-box;
     min-height:25rem;
     position:relative;
-    
-    @media(max-width:768px){
-        width:100%;
-    }
-    
 `;
 
 export const Title = Styled.h1`
@@ -66,6 +66,8 @@ export const StyledButton = Styled(Button)`
     background:${(props) => props.theme.colors.background.primary};
     padding:${(props) => props.theme.sizes.spacing.small};
     color:${(props) => props.theme.colors.text.light};
+    border-radius:0.25rem;
+    border:none;
     &:last-child{
         margin-left:0.5rem;
     }

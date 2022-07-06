@@ -12,10 +12,12 @@ const Button = ({ type, handleClick, icon, text, className, id }) => {
 };
 
 Button.propTypes = {
-  icon: PropTypes.object,
-  type: PropTypes.oneOf(["submit", "reset", "button"]),
   children: PropTypes.node,
+  className: PropTypes.string,
   handleClick: PropTypes.func,
+  icon: PropTypes.object,
+  id: PropTypes.number,
+  type: PropTypes.oneOf(["submit", "reset", "button"]),
 };
 
 Button.defaultProps = {

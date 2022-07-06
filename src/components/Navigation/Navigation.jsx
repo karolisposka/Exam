@@ -2,10 +2,14 @@ import React, { useState, useEffect } from "react";
 import * as S from "./Navigation.styles";
 import Section from "../Section/Section";
 import PropTypes from "prop-types";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faArrowTurnRight } from "@fortawesome/free-solid-svg-icons";
 import Logo from "../../Assets/logo.svg";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Navigation = ({ links }) => {
+  const token = localStorage.getItem("token");
+  const location = useLocation();
+  const navigate = useNavigate();
   const [display, setDisplay] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -24,7 +28,7 @@ const Navigation = ({ links }) => {
   }, []);
 
   return (
-    <S.Header scroll={scrollPosition}>
+    <S.Header scroll={scrollPosition || display}>
       <Section>
         <S.Navigation>
           <S.LogoWrapper to="/">
@@ -44,10 +48,22 @@ const Navigation = ({ links }) => {
                   to={link.path}
                   key={index}
                   scroll={scrollPosition}
+                  handleClick={() => {
+                    return toggle();
+                  }}
                 >
                   {link.name}
                 </S.StyledLink>
               ))}
+            {token && location.pathname !== "/" && (
+              <S.LogoutButton
+                icon={faArrowTurnRight}
+                handleClick={() => {
+                  localStorage.removeItem("token");
+                  navigate("/");
+                }}
+              />
+            )}
           </S.NavBar>
         </S.Navigation>
         {display && (

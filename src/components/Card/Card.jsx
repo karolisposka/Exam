@@ -15,18 +15,18 @@ const Card = ({ name, text, rating, time }) => {
       </S.ratingWrapper>
       <S.Text>{text}</S.Text>
       <S.InfoWrapper>
-        <div>{new Date(time).toLocaleString("en-GB", { timeZone: "UTC" })}</div>
+        <div>{new Date(time).toLocaleString()}</div>
       </S.InfoWrapper>
     </S.Card>
   );
 };
 
 Card.propTypes = {
+  handleClick: PropTypes.func,
   name: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired,
   text: PropTypes.string.isRequired,
   time: PropTypes.string.isRequired,
-  rating: PropTypes.number.isRequired,
-  handleClick: PropTypes.func,
 };
 
 export default Card;

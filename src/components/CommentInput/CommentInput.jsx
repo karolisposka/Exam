@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import * as S from "./CommentInput.styles";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+const url = process.env.REACT_APP_BACK_API;
 
 const CommentInput = () => {
   const [rating, setRating] = useState(null);
@@ -12,7 +13,7 @@ const CommentInput = () => {
 
   const postComment = async (inputs) => {
     try {
-      const res = await fetch("http://localhost:8080/v1/reviews/rate", {
+      const res = await fetch(url + "/reviews/rate", {
         method: "POST",
         headers: {
           "Content-type": "application/json",

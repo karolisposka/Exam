@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import LoginForm from "../components/LoginForm/LoginForm";
-
+import Container from "../components/Container/Container";
+import Footer from "../components/Footer/Footer";
 import { useNavigate } from "react-router-dom";
+
+const url = process.env.REACT_APP_BACK_API;
 
 const Login = () => {
   const navigate = useNavigate();
@@ -28,12 +31,17 @@ const Login = () => {
     }
   };
   return (
-    <LoginForm
-      handleSubmit={(data) => {
-        login(data);
-      }}
-      error={error}
-    />
+    <>
+      <Container>
+        <LoginForm
+          handleSubmit={(data) => {
+            login(data);
+          }}
+          error={error}
+        />
+      </Container>
+      <Footer />
+    </>
   );
 };
 

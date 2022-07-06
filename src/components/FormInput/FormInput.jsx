@@ -3,9 +3,17 @@ import * as S from "./FormInput.styles";
 
 import PropTypes from "prop-types";
 
-const FormInput = ({ handleChange, type, placeholder, value, icon, label }) => {
+const FormInput = ({
+  handleChange,
+  type,
+  placeholder,
+  value,
+  icon,
+  label,
+  className,
+}) => {
   return (
-    <S.InputBox>
+    <S.InputBox className={className}>
       <S.Label>{label}</S.Label>
       {icon && <S.Icon icon={icon} />}
       <S.Input

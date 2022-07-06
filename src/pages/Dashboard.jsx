@@ -4,7 +4,10 @@ import Container from "../components/Container/Container";
 import SearchBar from "../components/SearchBar/SearchBar";
 import NoData from "../components/Nodata/Nodata";
 import Footer from "../components/Footer/Footer";
+import Notification from "../components/Notification/Notification";
 import { useNavigate } from "react-router-dom";
+
+const url = process.env.REACT_APP_BACK_API;
 
 const CheckToken = () => {
   const navigate = useNavigate();
@@ -17,11 +20,12 @@ const CheckToken = () => {
 const Dashboard = () => {
   CheckToken();
   const [records, setRecords] = useState();
-  const [error, setError] = useState();
+  const [error, setError] = useState("");
+  const [inputValue, setInput] = useState();
 
   const getUserRecords = async () => {
     try {
-      const res = await fetch("http://localhost:8080/v1/meds/get", {
+      const res = await fetch(`${url}/meds/get`, {
         method: "GET",
         headers: {
           "Content-type": "application/json",
@@ -32,7 +36,7 @@ const Dashboard = () => {
       if (data.err) {
         return setError(data.err);
       }
-      return setRecords(data);
+      setRecords(data);
     } catch (err) {
       console.log(err);
     }
@@ -40,7 +44,7 @@ const Dashboard = () => {
 
   const fireSearchQuery = async (input) => {
     try {
-      const res = await fetch("http://localhost:8080/v1/meds/search", {
+      const res = await fetch(url + "/meds/search", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -49,10 +53,14 @@ const Dashboard = () => {
         body: JSON.stringify(input),
       });
       const data = await res.json();
+
       if (data.err) {
-        setError(data.err);
+        setRecords();
+        return setError(data.err);
+      } else {
+        setError();
+        return setRecords(data);
       }
-      return setRecords(data);
     } catch (err) {
       console.log(err);
     }
@@ -60,7 +68,7 @@ const Dashboard = () => {
 
   const deleteMeds = async (id) => {
     try {
-      const res = await fetch(`http://localhost:8080/v1/meds/delete/${id}`, {
+      const res = await fetch(url + "/meds/delete/" + id, {
         method: "DELETE",
         headers: {
           "Content-type": "application/json",
@@ -69,7 +77,6 @@ const Dashboard = () => {
       });
       const data = await res.json();
       getUserRecords();
-      console.log(data);
     } catch (err) {
       console.log(err);
     }
@@ -83,8 +90,10 @@ const Dashboard = () => {
     <>
       <Container>
         <SearchBar
+          value={inputValue}
           handleChange={(input) => {
-            !input ? getUserRecords() : fireSearchQuery({ input: input });
+            fireSearchQuery({ input: input });
+            setInput(input);
           }}
         />
         {error && <NoData text={error} />}

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import * as S from "./AddForm.styles";
-import Select from "react-select";
+import PropTypes from "prop-types";
+import Notification from "../Notification/Notification";
 import makeAnimated from "react-select/animated";
 
 const unitsOptions = [
@@ -38,78 +39,84 @@ const reminderTime = [
   { value: 5, label: "5:00" },
 ];
 
-const AddForm = ({ handleSubmit, children }) => {
+const AddForm = ({ handleSubmit, error }) => {
   const [values, setValues] = useState();
   return (
-    <S.FormContainer>
-      <S.Form
-        onSubmit={(e) => {
-          e.preventDefault();
-          console.log(values);
-          handleSubmit(values);
-        }}
-      >
-        {children}
-        <S.StyledFormInput
-          label="Title"
-          placeholder="Medication title"
-          handleChange={(titleValue) =>
-            setValues({ ...values, title: titleValue })
-          }
-        />
-        <S.StyledFormInput
-          label="Description"
-          placeholder="Description"
-          handleChange={(descriptionValue) => {
-            setValues({ ...values, description: descriptionValue });
+    <S.Container>
+      <S.FormContainer>
+        {error && <Notification>{error}</Notification>}
+        <S.Form
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleSubmit(values);
           }}
-        />
-        <S.SelectsWrapper>
-          <S.StyledSelect
-            options={unitsOptions}
-            placeholder="Select Units"
-            onChange={(e) => {
-              setValues({ ...values, units: e.value });
-              console.log(e.value);
-            }}
+        >
+          <S.StyledFormInput
+            label="Title"
+            placeholder="Medication title"
+            handleChange={(titleValue) =>
+              setValues({ ...values, title: titleValue })
+            }
           />
           <S.StyledFormInput
-            label="Dose"
-            placeholder="Dose size"
-            handleChange={(dosageValue) => {
-              setValues({ ...values, dosage: dosageValue });
+            label="Description"
+            placeholder="Description"
+            handleChange={(descriptionValue) => {
+              setValues({ ...values, description: descriptionValue });
             }}
           />
-        </S.SelectsWrapper>
-        <Select
-          components={makeAnimated()}
-          theme={(theme) => ({
-            ...theme,
-            colors: {
-              ...theme.colors,
-              primary25: "skybllue",
-              primary: "blue",
-            },
-          })}
-          options={reminderTime}
-          isMulti
-          autoFocus
-          placeholder="Select time"
-          onChange={(e) => {
-            const times = e
-              .map((item) => {
-                return item.value;
-              })
-              .join();
-            setValues({ ...values, time: times });
-          }}
-        />
-        <S.buttonWrapper>
-          <S.StyledButton type="submit" text="Add record" />
-        </S.buttonWrapper>
-      </S.Form>
-    </S.FormContainer>
+          <S.SelectsWrapper>
+            <S.StyledFormInput
+              label="Dose"
+              placeholder="Dose size"
+              handleChange={(dosageValue) => {
+                setValues({ ...values, dosage: dosageValue });
+              }}
+            />
+            <S.StyledSelect
+              options={unitsOptions}
+              placeholder="Select Units"
+              onChange={(e) => {
+                setValues({ ...values, units: e.value });
+                console.log(e.value);
+              }}
+            />
+          </S.SelectsWrapper>
+          <S.StyledSelect
+            components={makeAnimated()}
+            theme={(theme) => ({
+              ...theme,
+              colors: {
+                ...theme.colors,
+                primary25: "skybllue",
+                primary: "blue",
+              },
+            })}
+            options={reminderTime}
+            isMulti
+            autoFocus
+            placeholder="Select time"
+            onChange={(e) => {
+              const times = e
+                .map((item) => {
+                  return item.value;
+                })
+                .join();
+              setValues({ ...values, time: times });
+            }}
+          />
+          <S.buttonWrapper>
+            <S.StyledButton type="submit" text="Add record" />
+          </S.buttonWrapper>
+        </S.Form>
+      </S.FormContainer>
+    </S.Container>
   );
+};
+
+AddForm.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+  error: PropTypes.string,
 };
 
 export default AddForm;

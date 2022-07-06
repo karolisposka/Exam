@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import RegisterForm from "../components/RegisterForm/RegisterForm";
 import Notification from "../components/Notification/Notification";
+import Container from "../components/Container/Container";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer/Footer";
+
+const url = process.env.REACT_APP_BACK_API;
+
 const Register = () => {
   const navigate = useNavigate();
   const [error, setError] = useState();
@@ -35,34 +39,18 @@ const Register = () => {
   };
   return (
     <>
-      {/* {error && (
-        <Notification
-          handleClick={() => {
-            setError("");
-          }}
-        >
-          {error}
-        </Notification>
-      )}
-      {message && (
-        <Notification
-          handleClick={() => {
-            setMessage("");
-          }}
-        >
-          {message}
-        </Notification>
-      )} */}
-      <RegisterForm
-        handleSubmit={(data) =>
-          registation({
-            username: data.username,
-            email: data.email,
-            password: data.password,
-          })
-        }
-        error={error}
-      />
+      <Container>
+        <RegisterForm
+          handleSubmit={(data) =>
+            registation({
+              username: data.username,
+              email: data.email,
+              password: data.password,
+            })
+          }
+          error={error}
+        />
+      </Container>
       <Footer />
     </>
   );

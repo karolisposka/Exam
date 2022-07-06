@@ -31,10 +31,7 @@ const privateLinks = [
   },
   {
     path: "/",
-    name: "logout",
-    func: () => {
-      localStorage.removeItem("token");
-    },
+    name: "Home",
   },
 ];
 

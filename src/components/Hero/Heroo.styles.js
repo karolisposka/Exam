@@ -105,6 +105,7 @@ export const StyledButton = Styled(Button)`
         border-top-left-radius:2rem;
         border-bottom-left-radius:2rem;
         border-right: 0.1rem solid rgba(0,0,0,0.2);
+       
     }
     &:last-child{
         border-top-right-radius:2rem;
