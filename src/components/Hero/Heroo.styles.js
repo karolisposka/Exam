@@ -16,7 +16,7 @@ export const StyledSection = Styled(Section)`
 
 export const TitleWrapper = Styled.div`
     color:${(props) => props.theme.colors.text.light};
-    padding:2rem 0;
+    padding-top:4rem;
 `;
 
 export const Title = Styled.h1`
