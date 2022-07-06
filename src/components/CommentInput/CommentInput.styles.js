@@ -25,11 +25,19 @@ export const Star = Styled(FontAwesomeIcon)`
     font-size:2rem;
 `;
 
+export const CommentWrapper = Styled.div`
+    display:Flex;
+    justify-content:Center;
+
+`;
 export const CommentInput = Styled.textarea`
     resize: none;
-    width:100%;
+    display:block;
     box-sizing:border-box;
     padding:0.5rem;
+    width:90%;
+    height: 100px;
+    text-align:center;
     background:rgba(255,255,255,0.9);
     outline:none;
 `;

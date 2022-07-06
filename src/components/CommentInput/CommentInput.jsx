@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import * as S from "./CommentInput.styles";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import Notification from "../Notification/Notification";
@@ -61,12 +61,14 @@ const CommentInput = () => {
             );
           })}
         </S.RatingsWrapper>
-        <S.CommentInput
-          placeholder="Type in comment"
-          onChange={(e) => {
-            setValues({ ...values, text: e.target.value });
-          }}
-        />
+        <S.CommentWrapper>
+          <S.CommentInput
+            placeholder="Type in comment"
+            onChange={(e) => {
+              setValues({ ...values, text: e.target.value });
+            }}
+          />
+        </S.CommentWrapper>
         <S.SubmitButton type="submit" text="submit" />
       </S.Form>
     </S.CommentContainer>

@@ -50,7 +50,7 @@ export const StyledButton = Styled(Button)`
 
 export const CommentFieldContainer = Styled.div`
    width:100%;
-   height:250px;
+   height:280px;
    margin-top:1rem;
    background:${(props) => props.theme.colors.background.primary};
    animation: 0.2s ${transition} ease-in;
