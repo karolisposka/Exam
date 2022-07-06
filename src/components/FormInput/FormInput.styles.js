@@ -7,8 +7,8 @@ export const InputBox = Styled.div`
     box-shadow: 1.5px 2px 2px 0px rgba(0,0,0,0.3);
     box-sizing:border-box;
     font-family: ${(props) => props.theme.fonts.name.primary};
-    margin: 1.5rem;
-    padding: 0.50rem 1.5rem;
+    margin: 1rem;
+    padding: 0.25rem 1.5rem;
     @media(max-width:768px){
         padding:0.25rem 1rem;
     }
