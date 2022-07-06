@@ -19,7 +19,7 @@ export const FormContainer = Styled.div`
     align-items:center;
     padding-top:4rem;
     @media(max-width:768px){
-        padding-top:5rem;
+        padding-top:4rem;
     }
     
 `;
@@ -33,6 +33,12 @@ export const Form = Styled.form`
     box-sizing:border-box;
     min-height:25rem;
     position:relative;
+`;
+
+export const Title = Styled.h1`
+    margin:1rem;
+    font-size:1.5rem;
+    color: ${(props) => props.theme.colors.text.primary};
 `;
 
 export const ProgressBar = Styled.div`
