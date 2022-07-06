@@ -26,17 +26,17 @@ export const FormContainer = Styled.div`
 
 export const Form = Styled.form`
     width:100%;
-    margin:${(props) => props.theme.sizes.spacing.medium};
-    padding:${(props) => props.theme.sizes.spacing.medium};
+    margin:1rem;
+    padding:1rem;
     background:${(props) => props.theme.colors.background.light};
-    border-radius:${(props) => props.theme.sizes.radius.small};
+    border-radius:0.5rem;
     box-sizing:border-box;
     min-height:25rem;
     position:relative;
 `;
 
 export const Title = Styled.h1`
-    margin:${(props) => props.theme.sizes.spacing.medium};
+    margin:1rem;
     color: ${(props) => props.theme.colors.text.primary};
     &:first-child{
         visibility:hidden;
@@ -58,13 +58,13 @@ export const ProgressLeft = Styled.div`
 export const ButtonsWrapper = Styled.div`
     display:flex;
     justify-content: flex-end;
-    margin:${(props) => props.theme.sizes.spacing.hard};
+    margin:1.5rem;
 
 `;
 
 export const StyledButton = Styled(Button)`
     background:${(props) => props.theme.colors.background.primary};
-    padding:${(props) => props.theme.sizes.spacing.small};
+    padding:0.5rem;
     color:${(props) => props.theme.colors.text.light};
     border-radius:0.25rem;
     border:none;

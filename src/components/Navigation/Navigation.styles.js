@@ -39,7 +39,7 @@ export const Logo = Styled.img`
     object-fit: contain;
     width:3rem;
     color:${(props) => (props.scroll > 0 ? "white" : "black")}; 
-    padding: 0 ${(props) => props.theme.sizes.spacing.medium};
+    padding: 0 1rem;
 `;
 
 export const HamubergerButton = Styled(Button)`
@@ -85,7 +85,7 @@ export const LogoutButton = Styled(Button)`
 
 export const StyledLink = Styled(Link)`
     text-decoration:none;
-    margin:${(props) => props.theme.sizes.spacing.medium};
+    margin:1rem;
     font-family: ${(props) => props.theme.fonts.name.primary};
     color: ${(props) => (props.scroll > 0 ? "white" : "black")};
     font-weight: ${(props) => props.theme.fonts.sizes.bold};

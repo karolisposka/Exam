@@ -35,7 +35,7 @@ export const MedicationsList = Styled.div`
 export const MedsCard = Styled(MedicationCard)`
     background:white;
     width:calc(33.33% - 1rem);
-    margin:${(props) => props.theme.sizes.spacing.small};
+    margin:0.5rem;
 
     @media (max-width:768px){
         width:100%
@@ -55,11 +55,11 @@ export const AddButtonWrapper = Styled.div`
 `;
 
 export const AddButton = Styled(Button)`
-    margin:${(props) => props.theme.sizes.spacing.small};
+    margin:0.5rem;
     border:none;
     background:${(props) => props.theme.colors.background.secondary};
     color:${(props) => props.theme.colors.text.light};
-    padding:${(props) => props.theme.sizes.spacing.small};
+    padding:0.5rem;
     font-size:0.6rem;
     border-radius:0.25rem;
 

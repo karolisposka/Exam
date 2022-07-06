@@ -8,7 +8,7 @@ export const SearchForm = Styled.form`
     margin-top:5rem;
     border-top-right-radius: 0.2rem;
     border-bottom-right-radius: 0.2rem;
-    border: 1px solid ${(props) => props.theme.colors.border.light};
+    border: 1px solid #fff};
     box-shadow: 1px 1px 1px 1px  rgba(0,0,0,0.3);
     
 `;

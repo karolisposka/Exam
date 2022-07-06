@@ -11,8 +11,6 @@ export const Button = Styled.button`
 `;
 export const Icon = Styled(FontAwesomeIcon)`
   margin:0.25rem;
- 
-
 `;
 
 export const Text = Styled.p`

@@ -3,14 +3,13 @@ import Button from "../Button/Button";
 import { Link } from "react-router-dom";
 
 export const Container = Styled.div`
-    width:100%;
-    padding-top:10rem;
     display:Flex;
     justify-content:center;
+    padding-top:10rem;
+    width:100%;
     @media(max-width:768px){
         width:100%;
         padding-top:5rem;
-    
     }
 `;
 
@@ -23,19 +22,19 @@ export const FormContainer = Styled.div`
 `;
 
 export const Form = Styled.form`
-    margin:${(props) => props.theme.sizes.spacing.medium};
-    padding:${(props) => props.theme.sizes.spacing.medium};
+    margin:1rem;
+    padding:1rem;
     background:${(props) => props.theme.colors.background.light};
-    border-radius:${(props) => props.theme.sizes.radius.small};
+    border-radius:0.5rem;
     position:relative;
     box-sizing:border-box;
     @media(max-width:768px){
-        margin:${(props) => props.theme.sizes.spacing.small};
-        padding:${(props) => props.theme.sizes.spacing.small};
+        margin:0.5rem;
+        padding:0.5rem;
     }
 `;
 export const Title = Styled.h1`
-    margin:${(props) => props.theme.sizes.spacing.hard};
+    margin:1.5rem;
     color:${(props) => props.theme.colors.text.primary};
 
 `;
@@ -44,7 +43,7 @@ export const ButtonWrapper = Styled.div`
     display:Flex;
     justify-content:space-between;
     align-items:center;
-    margin:${(props) => props.theme.sizes.spacing.hard};
+    margin:1.5rem;
 `;
 
 export const StyledLink = Styled(Link)`
@@ -53,7 +52,7 @@ export const StyledLink = Styled(Link)`
 
 export const StyledButton = Styled(Button)`
     background: ${(props) => props.theme.colors.background.secondary};
-    padding: ${(props) => props.theme.sizes.spacing.small};
+    padding: 0.5rem;
     border:none;
     color:${(props) => props.theme.colors.text.light};
     border-radius:0.25rem;

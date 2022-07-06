@@ -14,59 +14,56 @@ const deleteCard = keyframes`
 `;
 
 export const Card = Styled.div`
-    font-family: ${(props) => props.theme.fonts.name.primary};
+    background:white;
     border:2px solid black;
     box-sizing:border-box;
-    background:white;
+    font-family: ${(props) => props.theme.fonts.name.primary};
     animation: ${(props) =>
       props.close ? `0.2s ${deleteCard} easein` : `none`};
 `;
 
 export const TitleSection = Styled.div`
+    border-bottom: 2px solid rgba(0,0,0,0.2);
     display:flex;
     justify-content:space-between;
-    margin:${(props) => props.theme.sizes.spacing.small};
-    border-bottom: 2px solid rgba(0,0,0,0.2);
+    margin:0.5rem;
     padding:0.25rem;
 `;
 
 export const CloseButton = Styled(Button)`
-    display:flex;
-    justify-content:center;
     align-items:center;
-    border-radius:100%;
-    width:0.5rem;
-    height:0.5rem;
-    padding:1rem;
     background:transparent;
+    border-radius:100%;
     color:red;
-    
+    display:flex;
+    height:0.5rem;
+    justify-content:center;
+    padding:1rem;
+    width:0.5rem;
 `;
 
 export const Title = Styled.div`
-    padding:${(props) => props.theme.sizes.spacing.small};
-    text-transform: capitalize;
     font-weight: ${(props) => props.theme.fonts.sizes.bold};
-    
-    
+    padding:0.5rem;
+    text-transform: capitalize;
 `;
 
 export const Description = Styled.p`
-    padding:${(props) => props.theme.sizes.spacing.medium};
+    padding:1rem;
 
 `;
 
 export const ButtonsWrapper = Styled.div`
     display:flex;
-    margin:${(props) => props.theme.sizes.spacing.medium};
+    margin:1rem;
 `;
 
 export const StyledButton = Styled(Button)`
-    padding:${(props) => props.theme.sizes.spacing.small};
-    border-radius:0.25rem;
-    transition:0.3s ease;
     background:transparent;
+    border-radius:0.25rem;
     border:0.2rem solid ${(props) => props.theme.colors.background.secondary};
+    padding:0.5rem;
+    transition:0.3s ease;
     &:hover{
         background:${(props) => props.theme.colors.background.secondary};
         color:${(props) => props.theme.colors.text.light};
@@ -77,15 +74,15 @@ export const StyledButton = Styled(Button)`
 `;
 
 export const Tag = Styled.span`
+    background:${(props) => props.theme.colors.background.secondary};
+    border-radius:1rem;
+    color: ${(props) => props.theme.colors.text.light};
     display:inline-block;
     margin:;
-    padding:${(props) => props.theme.sizes.spacing.small} ;
-    border-radius:1rem;
     margin:0.15rem;
-    color: ${(props) => props.theme.colors.text.light};
-    background:${(props) => props.theme.colors.background.secondary};
+    padding:0.5rem ;
     &&:first-of-type{
-        margin-left:${(props) => props.theme.sizes.spacing.medium}
+        margin-left:1rem
     }
 
 

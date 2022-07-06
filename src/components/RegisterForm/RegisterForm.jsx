@@ -3,7 +3,6 @@ import * as S from "./RegisterForm.styles";
 import FormInput from "../FormInput/FormInput";
 import Notification from "../Notification/Notification";
 import PropTypes from "prop-types";
-import { useNavigate } from "react-router-dom";
 import {
   faUser,
   faLock,
@@ -59,6 +58,7 @@ const RegisterForm = ({ handleSubmit, error }) => {
                       <FormInput
                         type="text"
                         label="Name"
+                        value={data.username}
                         placeholder="Username"
                         icon={faUser}
                         handleChange={(usernameValue) => {
@@ -68,6 +68,7 @@ const RegisterForm = ({ handleSubmit, error }) => {
                       <FormInput
                         type="email"
                         label="Email address"
+                        value={data.email}
                         placeholder="example@example.com"
                         icon={faMailBulk}
                         handleChange={(emailValue) =>
@@ -77,6 +78,7 @@ const RegisterForm = ({ handleSubmit, error }) => {
                       <FormInput
                         type="password"
                         label="Password"
+                        value={data.password}
                         placeholder="Password"
                         icon={faLock}
                         handleChange={(passwordValue) =>
@@ -110,6 +112,7 @@ const RegisterForm = ({ handleSubmit, error }) => {
                       <FormInput
                         type="text"
                         label="First Name"
+                        value={data.first}
                         placeholder="First Name"
                         icon={faLock}
                         handleChange={(firstnameValue) =>
@@ -119,11 +122,19 @@ const RegisterForm = ({ handleSubmit, error }) => {
                       <FormInput
                         type="text"
                         label="Last Name"
+                        value={data.last}
                         placeholder="Last name"
                         icon={faLock}
                         handleChange={(lastnameValue) =>
                           setData({ ...data, last: lastnameValue })
                         }
+                      />
+                      <FormInput
+                        type="number"
+                        label="phone number"
+                        value="+370 xxxxxxxxx"
+                        placeholder="Phone number"
+                        icon={faLock}
                       />
 
                       <S.ButtonsWrapper>

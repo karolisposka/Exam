@@ -7,18 +7,14 @@ export const Container = Styled.div`
     align-items:center;
     display:flex;
     justify-content:center;
-    padding-top:10rem;
+    padding-top:5rem;
     width:100%;
-        @media(max-width:768px){
+    @media(max-width:768px){
         width:100%;
     }
-
-
 `;
 
-export const FormContainer = Styled.div`
-    
-   
+export const FormContainer = Styled.div`  
 `;
 
 export const Form = Styled.form`
@@ -28,16 +24,14 @@ export const Form = Styled.form`
     border:none;
     box-sizing:border-box;
     box-sizing:border-box;
-    padding:1rem;
-    width:100%;
-    
+    padding:1rem;    
 `;
 
 export const StyledSelect = Styled(Select)`
-    
     margin:0 1.5rem;
     &:first-child{
       display:inline;
+       width:10rem;
     }
 `;
 
@@ -51,13 +45,12 @@ export const SelectsWrapper = Styled.div`
     align-items:center;
     display:flex;
     justify-content:space-between;
-   
 `;
 
 export const buttonWrapper = Styled.div`
     display:flex;
     justify-content:flex-end;
-    margin: ${(props) => props.theme.sizes.spacing.hard};
+    margin: 1.5rem;
 `;
 
 export const StyledButton = Styled(Button)`
@@ -65,8 +58,5 @@ export const StyledButton = Styled(Button)`
     border-radius:0.25rem;
     border:none;
     color:${(props) => props.theme.colors.text.light};
-    padding:${(props) => props.theme.sizes.spacing.small};
-
-
-
+    padding:0.5rem;
 `;

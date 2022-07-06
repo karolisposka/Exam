@@ -25,7 +25,7 @@ const Dashboard = () => {
 
   const getUserRecords = async () => {
     try {
-      const res = await fetch(`${url}/meds/get`, {
+      const res = await fetch(`${url}v1/meds/get`, {
         method: "GET",
         headers: {
           "Content-type": "application/json",
@@ -44,7 +44,7 @@ const Dashboard = () => {
 
   const fireSearchQuery = async (input) => {
     try {
-      const res = await fetch(url + "/meds/search", {
+      const res = await fetch(url + "v1/meds/search", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -68,7 +68,7 @@ const Dashboard = () => {
 
   const deleteMeds = async (id) => {
     try {
-      const res = await fetch(url + "/meds/delete/" + id, {
+      const res = await fetch(url + "v1/meds/delete/" + id, {
         method: "DELETE",
         headers: {
           "Content-type": "application/json",
@@ -96,6 +96,7 @@ const Dashboard = () => {
             setInput(input);
           }}
         />
+        {!records && <div></div>}
         {error && <NoData text={error} />}
         {records && (
           <MedicationsList

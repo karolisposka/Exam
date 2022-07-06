@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import LoginForm from "../components/LoginForm/LoginForm";
 import Container from "../components/Container/Container";
 import Footer from "../components/Footer/Footer";
@@ -11,7 +11,7 @@ const Login = () => {
   const [error, setError] = useState();
   const login = async (inputs) => {
     try {
-      const res = await fetch("http://localhost:8080/v1/user/login", {
+      const res = await fetch(url + "v1/user/login", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -30,6 +30,9 @@ const Login = () => {
       console.log(err);
     }
   };
+  useEffect(() => {
+    setError();
+  }, []);
   return (
     <>
       <Container>

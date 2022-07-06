@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import RegisterForm from "../components/RegisterForm/RegisterForm";
-import Notification from "../components/Notification/Notification";
 import Container from "../components/Container/Container";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer/Footer";
@@ -8,12 +7,12 @@ import Footer from "../components/Footer/Footer";
 const url = process.env.REACT_APP_BACK_API;
 
 const Register = () => {
-  const navigate = useNavigate();
   const [error, setError] = useState();
-  const [message, setMessage] = useState();
+  const [notification, setNotification] = useState();
+
   const registation = async (inputs) => {
     try {
-      const res = await fetch("http://localhost:8080/v1/user/register", {
+      const res = await fetch(url + "v1/user/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -21,22 +20,21 @@ const Register = () => {
         body: JSON.stringify(inputs),
       });
       const data = await res.json();
-      if (!data) {
-        return setError("no data");
-      }
       if (data.err) {
         return setError(data.err);
       }
       if (data.msg) {
-        setMessage(data.msg);
-        setTimeout(() => {
-          return navigate("/");
-        }, 2000);
+        setNotification(data.msg);
       }
     } catch (err) {
       console.log(err);
     }
   };
+
+  useEffect(() => {
+    setError();
+  }, []);
+
   return (
     <>
       <Container>
@@ -48,7 +46,7 @@ const Register = () => {
               password: data.password,
             })
           }
-          error={error}
+          error={error || notification}
         />
       </Container>
       <Footer />

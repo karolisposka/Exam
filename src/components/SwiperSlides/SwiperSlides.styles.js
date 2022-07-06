@@ -5,8 +5,6 @@ import Section from "../Section/Section";
 
 export const SwiperContainer = Styled.div`
    font-family:${(props) => props.theme.fonts.name.primary};
-   
-   
 `;
 
 const transition = keyframes`
@@ -21,7 +19,9 @@ const transition = keyframes`
 export const StyledContainer = Styled(Container)`
    background:none;
    height:100%;
-
+   @media(max-width:768px){
+      height:100%;
+   }
 `;
 
 export const StyledSection = Styled(Section)`

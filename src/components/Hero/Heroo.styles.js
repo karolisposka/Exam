@@ -5,9 +5,9 @@ import Button from "../Button/Button";
 
 export const Container = Styled.div`
     background-image:url(${image});
-    width:100%;
-    height:100vh;
     background-size:cover;
+    height:100vh;
+    width:100%;
 `;
 
 export const StyledSection = Styled(Section)`
@@ -23,9 +23,9 @@ export const TitleWrapper = Styled.div`
 `;
 
 export const Title = Styled.h1`
-    margin:  ${(props) => props.theme.sizes.spacing.small} 0;
-    font-weight:${(props) => props.theme.fonts.sizes.bold};
     font-size:3.5rem;
+    font-weight:${(props) => props.theme.fonts.sizes.bold};
+    margin:  0.5rem 0;
     text-align:Center;
     @media(max-width:768px){
         font-size:1.5rem;
@@ -35,9 +35,9 @@ export const Title = Styled.h1`
 
 export const Subtitle = Styled.span`
     color:${(props) => props.theme.colors.text.light};
-    font-weight:${(props) => props.theme.fonts.sizes.bold};
-    font-size:2.5rem;
     display:table;
+    font-size:2.5rem;
+    font-weight:${(props) => props.theme.fonts.sizes.bold};
     margin:0 auto;
     @media(max-width:768px){
         font-size:1.5rem;
@@ -47,19 +47,19 @@ export const Subtitle = Styled.span`
 `;
 
 export const TextWrapper = Styled.div`
-    display:flex;
     align-items:center;
     color:${(props) => props.theme.colors.text.light};
+    display:flex;
     @media(max-width:768px){
         padding:2rem 0;
     }
 `;
 
 export const Text = Styled.p`
-    margin: ${(props) => props.theme.sizes.spacing.medium} 0;
     font-size:1.2rem;
-    text-align:center;
     line-height:2rem;
+    margin: 1rem 0;
+    text-align:center;
      @media(max-width:768px){
         font-size:1rem;
     }
@@ -67,8 +67,8 @@ export const Text = Styled.p`
 `;
 
 export const ButtonsWrapper = Styled.div`
-    display:flex;
     align-items:center;
+    display:flex;
     justify-content:center;
     padding:8rem 0;
     @media(max-width:768px){
@@ -90,26 +90,26 @@ const hover = keyframes`
 `;
 
 export const StyledButton = Styled(Button)`
-    width:10rem;
-    text-align:center;
-    text-transform:uppercase;
-    padding:${(props) => props.theme.sizes.spacing.medium};
     border:none;
     opacity:0.3;
+    padding:1rem;
+    text-align:center;
+    text-transform:uppercase;
+    width:10rem;
     
     &:hover{
        animation: 0.3s  ${hover} ease;
        opacity:1;
     }
     &:first-child{
-        border-top-left-radius:2rem;
         border-bottom-left-radius:2rem;
         border-right: 0.1rem solid rgba(0,0,0,0.2);
+        border-top-left-radius:2rem;
        
     }
     &:last-child{
-        border-top-right-radius:2rem;
         border-bottom-right-radius:2rem;
+        border-top-right-radius:2rem;
     }
 
 `;

@@ -14,7 +14,7 @@ const Home = () => {
 
   const getData = async () => {
     try {
-      const res = await fetch(url + "/reviews/ratings");
+      const res = await fetch(url + "v1/reviews/ratings");
       const data = await res.json();
       if (data.err) {
         return setError(data.err);

@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AddForm from "../components/AddForm/AddForm";
 import Container from "../components/Container/Container";
-import Notification from "../components/Notification/Notification";
 import Footer from "../components/Footer/Footer";
 
 const url = process.env.REACT_APP_BACK_API;
@@ -11,7 +10,7 @@ const Add = () => {
   const [error, setError] = useState();
   const addRecord = async (inputs) => {
     try {
-      const res = await fetch(url + "/meds/add", {
+      const res = await fetch(url + "v1/meds/add", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -21,15 +20,22 @@ const Add = () => {
       });
       const data = await res.json();
       if (data.msg) {
+        setError("");
         return setNotification(data.msg);
       }
       if (data.err) {
+        setNotification("");
         return setError(data.err);
       }
     } catch (err) {
       console.log(err);
     }
   };
+
+  useEffect(() => {
+    setError();
+    setNotification();
+  }, []);
   return (
     <>
       <Container>
