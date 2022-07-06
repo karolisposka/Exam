@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as S from "./CommentInput.styles";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import Notification from "../Notification/Notification";
 const url = process.env.REACT_APP_BACK_API;
 
 const CommentInput = () => {
   const [rating, setRating] = useState(null);
+  const [notification, setNotification] = useState();
   const [selectedhover, setSelectedHover] = useState(null);
   const [values, setValues] = useState({
     rating: "null",
@@ -13,7 +15,7 @@ const CommentInput = () => {
 
   const postComment = async (inputs) => {
     try {
-      const res = await fetch(url + "/reviews/rate", {
+      const res = await fetch(url + "v1/reviews/rate", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -22,7 +24,7 @@ const CommentInput = () => {
         body: JSON.stringify(inputs),
       });
       const data = await res.json();
-      console.log(data);
+      return setNotification(data.msg);
     } catch (err) {
       console.log(err);
     }
@@ -30,6 +32,7 @@ const CommentInput = () => {
 
   return (
     <S.CommentContainer>
+      {notification && <Notification>${notification}</Notification>}
       <S.Form
         onSubmit={(e) => {
           e.preventDefault();

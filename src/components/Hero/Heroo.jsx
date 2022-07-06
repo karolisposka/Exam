@@ -2,6 +2,7 @@ import React from "react";
 import * as S from "./Heroo.styles";
 import { faArrowCircleDown } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
+const token = localStorage.getItem("token");
 
 const Heroo = ({ title, subtitle, handleClick, rotate }) => {
   const navigate = useNavigate();
@@ -19,20 +20,22 @@ const Heroo = ({ title, subtitle, handleClick, rotate }) => {
             you here Hello world for everyone. Nice to see you here
           </S.Text>
         </S.TextWrapper>
-        <S.ButtonsWrapper>
-          <S.StyledButton
-            text="login"
-            handleClick={() => {
-              navigate("/login");
-            }}
-          ></S.StyledButton>
-          <S.StyledButton
-            text="Register"
-            handleClick={() => {
-              navigate("/register");
-            }}
-          ></S.StyledButton>
-        </S.ButtonsWrapper>
+        {!token && (
+          <S.ButtonsWrapper>
+            <S.StyledButton
+              text="login"
+              handleClick={() => {
+                navigate("/login");
+              }}
+            ></S.StyledButton>
+            <S.StyledButton
+              text="Register"
+              handleClick={() => {
+                navigate("/register");
+              }}
+            ></S.StyledButton>
+          </S.ButtonsWrapper>
+        )}
         <S.ArrowWrapper>
           <S.Arrow
             icon={faArrowCircleDown}

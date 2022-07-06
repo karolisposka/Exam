@@ -6,6 +6,7 @@ export const CommentContainer = Styled.div`
     margin:0 auto;
     overflow:hidden;
     width:100%;
+    height:300px;
 `;
 export const Form = Styled.form`
 
@@ -29,7 +30,6 @@ export const CommentInput = Styled.textarea`
     width:100%;
     box-sizing:border-box;
     padding:0.5rem;
-    height: 80px;
     background:rgba(255,255,255,0.9);
     outline:none;
 `;
