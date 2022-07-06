@@ -54,7 +54,7 @@ const RegisterForm = ({ handleSubmit, error }) => {
                           width: `calc(100% - (50% * ${data.page + 1}))`,
                         }}
                       />
-                      <S.Title>Register</S.Title>
+
                       <FormInput
                         type="text"
                         label="Name"

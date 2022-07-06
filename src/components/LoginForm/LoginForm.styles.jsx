@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export const Container = Styled.div`
     display:Flex;
     justify-content:center;
-    padding-top:10rem;
+    padding-top:4rem;
     width:100%;
     @media(max-width:768px){
         width:100%;

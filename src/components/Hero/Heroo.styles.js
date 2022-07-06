@@ -70,7 +70,7 @@ export const ButtonsWrapper = Styled.div`
     align-items:center;
     display:flex;
     justify-content:center;
-    padding:8rem 0;
+    padding:4rem 0;
     @media(max-width:768px){
         padding:2rem 0;
     }
